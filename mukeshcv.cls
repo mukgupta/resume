@@ -19,7 +19,7 @@
 %% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 %% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 %% SOFTWARE.
-\ProvidesClass{mcdowellcv}[2015/12/15 v1.1.0 McDowell CV class]
+\ProvidesClass{mukeshcv}[2015/12/15 v1.1.0 Mukesh CV class]
 
 % Set up the fonts according to options
 \def\mainfontsize{11pt}
@@ -62,6 +62,13 @@ Ligatures={TeX, NoCommon, NoDiscretionary}]{\mainfontface}
 
 % To customize lists
 \usepackage{enumitem}
+
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
 % Remove left margin from lists, suppress vertical item separation and set top 
 % separation to a negative value to suppress a single parskip before lists
 \setlist{leftmargin=*, noitemsep, topsep=-1\parskip}
@@ -94,6 +101,8 @@ Ligatures={TeX, NoCommon, NoDiscretionary}]{\mainfontface}
 %--------------------------------------------------------------------------------
 
 % Address
+\pagenumbering{roman}
+
 \makeatletter
 
 \newcommand\address[1]{\def\@address{#1}}
@@ -140,6 +149,8 @@ Ligatures={TeX, NoCommon, NoDiscretionary}]{\mainfontface}
 }
 \makeatother
 
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
 %--------------------------------------------------------------------------------
 %                            Sections and Subsections                           -
 %--------------------------------------------------------------------------------
@@ -164,6 +175,10 @@ Ligatures={TeX, NoCommon, NoDiscretionary}]{\mainfontface}
 \newtoggle{lefttitledefined}
 \newtoggle{centertitledefined}
 \newtoggle{righttitledefined}
+
+\newcommand{\projecttitle}[1]{
+	\textbf{\textcolor[HTML]{141F1F}{#1}}
+}
 
 \newenvironment{cvsubsection}[4][1]{
 	\notblank{#2}{\toggletrue{lefttitledefined}}{}
